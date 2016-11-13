@@ -5,6 +5,7 @@ import { Link } from 'react-router'
 
 export default class Main extends Component {
 	render() {
+
 		return (
     		<div class="row">
     			<Col xs={12}>
