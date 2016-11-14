@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Sidebar from './Sidebar'
+import Sidebar from '../containers/SidebarContainer'
 import Navbar from './Navbar'
 import { Col } from 'react-bootstrap'
 

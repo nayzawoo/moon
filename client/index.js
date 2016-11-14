@@ -1,15 +1,15 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router'
+import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 import Main from './pages/Main'
 import About from './pages/About'
 import App from './components/App'
 
-let store = window.store = createStore(function(state, action) {
-  console.log(state, action)
-})
+import reducers from './reducers'
+
+let store = createStore(reducers)
 
 const routes = (
   <Router history={hashHistory}>
