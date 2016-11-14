@@ -25,6 +25,7 @@ $app = new Laravel\Lumen\Application(
 
 $app->withFacades();
 $app->configure('app');
+$app->configure('databases');
 // $app->withEloquent();
 
 /*
@@ -78,10 +79,12 @@ $app->singleton(
 |
 */
 
-// $app->register(App\Providers\AppServiceProvider::class);
+ $app->register(App\Providers\AppServiceProvider::class);
+$app->register(Dingo\Api\Provider\LumenServiceProvider::class);
+$app->register(App\Providers\RouteServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
-$app->register(Dingo\Api\Provider\LumenServiceProvider::class);
+$app->register(App\Providers\MongoDBServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
