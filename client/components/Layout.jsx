@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Sidebar from '../containers/SidebarContainer'
+import DatabasesContainer from '../containers/DatabasesContainer'
 import Navbar from './Navbar'
 import { Col } from 'react-bootstrap'
 
@@ -14,7 +14,7 @@ export default class Layout extends Component {
     		<div class="container" style={style}>
           <div class="row">
             <Col sm={3}>
-              <Sidebar />
+              <DatabasesContainer />
             </Col>
             <Col sm={9}>
               {this.props.children}

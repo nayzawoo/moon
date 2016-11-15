@@ -1,7 +1,6 @@
 import axios from 'axios'
 import url from 'url'
 
-// DB list
 export const FETCH_DBS = 'FETCH_DBS'
 export const FETCH_DBS_SUCCESS = 'FETCH_DBS_SUCCESS'
 export const FETCH_DBS_FAILURE = 'FETCH_DBS_FAILURE'
@@ -12,20 +11,27 @@ function apiUrl(path) {
   return url.resolve(ROOT_URL, path)
 }
 
-export function fetchDbs() {
-  const request = axios({
-    method: 'get',
-    url: apiUrl('api/list_databases')
-  })
-  return {
-    type: FETCH_DBS,
-    payload: request
-  }
+function requestDbs() {
+  return { type: FETCH_DBS }
 }
 
-export function fetchDbsSuccess(dbs) {
+function receivedDbs(dbs) {
     return {
       type: FETCH_DBS_SUCCESS,
       payload: dbs
     }
+}
+
+export function fetchDbs() {
+  return function(dispatch) {
+    dispatch(requestDbs())
+    return axios({
+      method: 'get',
+      url: apiUrl('api/list_databases')
+    }).then((response) => {
+      dispatch(receivedDbs(response.data))
+    }).catch((response) => {
+      console.error(response)
+    })
+  }
 }
