@@ -16,6 +16,6 @@ export default function(state = INITIAL_STATE, action)  {
         loading: false
       }
     default:
-      return state;
+      return state
   }
 }

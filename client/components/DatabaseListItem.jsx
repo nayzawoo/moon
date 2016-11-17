@@ -11,7 +11,7 @@ export default class DatabaseListItem extends Component {
   }
 
   render() {
-    const db = this.props.db;
+    const db = this.props.db
     return (
       <li class="list-group-item" key={db.name} ref="list">
         <a href="#" class="animated fadeIn" onClick={this.onClickHandler}>

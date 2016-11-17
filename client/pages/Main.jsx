@@ -13,6 +13,6 @@ export default class Main extends Component {
     				<Link to="/about">About</Link>
     			</Col>
     		</div>
-		);
+		)
 	}
 }
