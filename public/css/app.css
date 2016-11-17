@@ -1,0 +1,7 @@
+.db-list .list-group-item a {
+  -webkit-animation-duration: 0.3s;
+  -moz-animation-duration: 0.3s;
+  -ms-animation-duration: 0.3s;
+  -o-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+}

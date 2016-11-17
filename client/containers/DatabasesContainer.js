@@ -24,7 +24,7 @@ class DatabasesList extends Component {
 
   render() {
     return (
-      <div class="panel panel-default">
+      <div class="panel panel-default db-list">
         <div class="panel-heading">Databases</div>
         <ul class="list-group">
           {this.renderDatabasesList(this.props.dbs)}
