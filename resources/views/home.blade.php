@@ -2,11 +2,9 @@
 <html>
   <head>
     <title>Sample App</title>
-    <link rel="stylesheet" href="{{url('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{url('css/font-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{url('css/spinkit.css')}}">
     <link rel="stylesheet" href="{{url('css/animate.min.css')}}">
-    <link rel="stylesheet" href="{{url('css/app.css')}}">
+    <link rel="stylesheet" href="{{url('css/style.css')}}">
     <script>
       var globals = {!!json_encode([
         'apiRoot' => url('api')
