@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Sample App</title>
+    <title>Moon</title>
     <link rel="stylesheet" href="{{url('css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{url('css/animate.min.css')}}">
     <link rel="stylesheet" href="{{url('css/style.css')}}">

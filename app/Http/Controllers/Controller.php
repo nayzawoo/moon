@@ -16,18 +16,4 @@ abstract class Controller extends BaseController
     public function __construct() {
         $this->server = new Server(app('mongodb'));
     }
-    
-    /**
-     * @return \App\Moon\Connection
-     */
-    public function getConnection() {
-        return $this->server->getConnection();
-    }
-    
-    /**
-     * @return \MongoDB\Client
-     */
-    public function getMongoClient() {
-        return $this->server->getMongoClient();
-    }
 }

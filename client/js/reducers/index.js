@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
-import DatabaseReducer from './databases'
+import DatabasesReducer from './databases'
+import CollectionsReducer from './collections'
 
 const rootReducer = combineReducers({
-  db: DatabaseReducer
+  db: DatabasesReducer,
+  cols: CollectionsReducer
 })
 
 export default rootReducer

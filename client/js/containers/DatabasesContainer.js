@@ -1,7 +1,7 @@
 import React, {Component} from  'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {fetchDbs, fetchDbsSuccess} from '../actions/databases'
+import {fetchDbs} from '../actions/databases'
 import Spinner from '../components/Spinner'
 import DatabaseListItem from '../components/DatabaseListItem'
 
@@ -24,12 +24,12 @@ class DatabasesList extends Component {
 
   render() {
     return (
-      <div class="panel panel-default db-list">
-        <div class="panel-heading">Databases</div>
-        <ul class="list-group">
+      <nav class="menu dbs-list">
+        <span class="menu-heading">Databases</span>
+        <ul>
           {this.renderDatabasesList(this.props.dbs)}
         </ul>
-      </div>
+      </nav>
     )
   }
 }

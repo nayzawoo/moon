@@ -1,0 +1,28 @@
+$navbar-height: 60px;
+header {
+    background-color: $gray;
+    border-bottom: 1px solid #e5e5e5;
+    font-weight: bolder;
+    height: $navbar-height;
+    a {
+        line-height: $navbar-height;
+        text-decoration: none;
+        color: $gray-dark;
+        &:hover {
+            color: $blue;
+            text-decoration: none;
+        }
+    }
+
+    nav a {
+        font-size: 13px;
+        margin-right: 12px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    nav.pull-right {
+        float: right;
+    }
+}

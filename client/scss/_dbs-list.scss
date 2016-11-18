@@ -1,0 +1,30 @@
+.dbs-list {
+  li {
+    padding: 0;
+  }
+
+  li a {
+    display: block;
+    width: 100%;
+    padding: 8px 10px;
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .tree-toggle-icon {
+    color: $gray-dark;
+  }
+
+  .db-icon {
+    margin-right: 4px;
+  }
+}
+
+.dbs-list-item {
+  .collection-list { display: none }
+  &.open {
+    .collection-list { display: block }
+  }
+}

@@ -1,24 +1,23 @@
 import React, { Component } from 'react'
 import DatabasesContainer from '../containers/DatabasesContainer'
 import Navbar from './Navbar'
-import { Col } from 'react-bootstrap'
 
 export default class Layout extends Component {
 	render() {
     const style = {
-      paddingTop: 70
+      paddingTop: 20
     }
 		return (
       <div>
         <Navbar />
     		<div class="container" style={style}>
-          <div class="row">
-            <Col sm={3}>
+          <div class="columns">
+            <div class="one-fifth column">
               <DatabasesContainer />
-            </Col>
-            <Col sm={9}>
+            </div>
+            <div class="four-fifths column">
               {this.props.children}
-            </Col>
+            </div>
     			</div>
         </div>
       </div>
