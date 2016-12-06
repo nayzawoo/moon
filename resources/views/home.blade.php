@@ -12,7 +12,7 @@
     </script>
   </head>
   <body>
-    <div id='root'>
+    <div id='app'>
     </div>
     @if(env('APP_ENV') != 'production')
     <script src="{{url('js/bundle.js')}}"></script>

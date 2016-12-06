@@ -1,6 +1,5 @@
 import React, { PropTypes, Component } from 'react'
 import ReactDOM from 'react-dom'
-import CollectionsList from './CollectionsList'
 import CollectionsContainer from '../containers/CollectionsContainer'
 
 export default class DatabaseListItem extends Component {

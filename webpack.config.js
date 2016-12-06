@@ -5,7 +5,7 @@ var PROD = JSON.parse(process.env.PROD_ENV || '0')
 
 var entryProd = {
   'css/style.min.css': './client/scss/main',
-  'js/bundle.min.js': ['./client/js/index']
+  'js/bundle.min.js': ['./client/js/main']
 }
 
 var extractCSS = new ExtractTextPlugin('[name]', {
@@ -49,7 +49,7 @@ module.exports = {
   devtool: PROD ? '' : 'eval',
   entry: PROD ? entryProd : {
     'css/style.css': './client/scss/main',
-    'js/bundle.js': ['./client/js/index']
+    'js/bundle.js': ['./client/js/main']
   },
   output: {
     path: path.join(__dirname, 'public'),
@@ -66,6 +66,9 @@ module.exports = {
     }, {
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract('style-loader', sassLoaders)
+    }, {
+      test: /\.vue$/,
+      loader: 'vue-loader',
     }]
   },
   postcss: function() {
@@ -79,6 +82,9 @@ module.exports = {
     includePaths: [path.join(__dirname, 'client/scss'), 'node_modules']
   },
   resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.common.js'
+    },
     extensions: ['', '.js', '.jsx', '.scss']
   }
 }
