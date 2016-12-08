@@ -6,13 +6,14 @@ use RecursiveIteratorIterator;
 
 class DashboardController extends Controller {
     public function listDatabases() {
+        sleep(2);
         $dbs = $this->server->listDatabases();
         return fractal()
             ->collection($dbs)
             ->transformWith(new DatabaseTransformer())
             ->toArray()['data'];
     }
-    
+
     public function listCollections($dbName) {
         $collectionInfoCommandIterator  = $this->selectDb($dbName)->listCollections();
         $collections = [];
@@ -29,10 +30,10 @@ class DashboardController extends Controller {
                 'index_sizes' => $collection['indexSizes'],
             ];
         }
-        
+
         return $collections;
     }
-    
+
     /**
      * @param $dbName
      * @param $collectionName
@@ -42,7 +43,7 @@ class DashboardController extends Controller {
     protected function selectCollection($dbName, $collectionName) {
         return $this->selectDb($dbName)->{$collectionName};
     }
-    
+
     /**
      * @param $dbName
      *
@@ -51,14 +52,14 @@ class DashboardController extends Controller {
     protected function selectDb($dbName) {
         return $this->getMongoClient()->{$dbName};
     }
-    
+
     /**
      * @return \App\Moon\Connection
      */
     protected function getConnection() {
         return $this->server->getConnection();
     }
-    
+
     /**
      * @return \MongoDB\Client
      */
