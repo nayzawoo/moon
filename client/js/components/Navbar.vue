@@ -1,10 +1,10 @@
 <template>
-  <header>
+  <header class="bg-gray border-bottom">
     <div class="container-xl">
-      <a href="#" class="brand-title">Home</a>
+      <a href="#" class="brand-title"><b>Home</b></a>
       <nav class="pull-right">
-        <a href="#">Settings</a>
-        <a href="#">About</a>
+        <a href="#"><b>Settings</b></a>
+        <a href="#"><b>Settings</b></a>
       </nav>
     </div>
   </header>

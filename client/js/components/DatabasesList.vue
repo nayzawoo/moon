@@ -32,7 +32,8 @@ export default {
   },
 
   computed: mapGetters({
-    dbs: 'dbs'
+    dbs: 'dbs',
+    errors: 'errors',
   }),
 
   created() {

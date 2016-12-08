@@ -41,11 +41,12 @@
     "webpack": "^1.13.3"
   },
   "dependencies": {
-    "axios": "^0.15.2",
     "cssnano": "^3.8.0",
+    "lodash": "^4.17.2",
     "postcss-loader": "^1.1.1",
     "primer-css": "^4.3.0",
     "vue": "^2.1.4",
-    "vuex": "^2.0.0"
+    "vuex": "^2.0.0",
+    "whatwg-fetch": "^2.0.1"
   }
 }

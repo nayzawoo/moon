@@ -1,8 +1,8 @@
 <template>
-  <li class="menu-item dbs-list-item" :class="classes">
-    <a href="#" class="animated fadeIn" @click="onClickHandler">
-      <i class="fa fa-fw fa-caret-right tree-toggle-icon"></i>
-      <i class="fa fa-fw fa-database db-icon"></i>
+  <li class="dbs-list-item p-0 " :class="classes">
+    <a href="#" class="menu-item animated fadeIn d-block" @click="onClickHandler">
+      <i class="fa fa-caret-right tree-toggle-icon text-gray-dark mr-1"></i>
+      <i class="fa fa-database db-icon mr-1"></i>
       {{db.name}}
     </a>
     <div class="collection-list">

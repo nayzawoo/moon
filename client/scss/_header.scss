@@ -1,16 +1,11 @@
 $navbar-height: 60px;
 header {
-    background-color: $gray;
-    border-bottom: 1px solid #e5e5e5;
-    font-weight: bolder;
     height: $navbar-height;
     a {
         line-height: $navbar-height;
-        text-decoration: none;
         color: $gray-dark;
         &:hover {
             color: $blue;
-            text-decoration: none;
         }
     }
 

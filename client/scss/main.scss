@@ -7,3 +7,8 @@
 .db-list .list-group-item a {
   animation-duration: 0.3s;
 }
+
+a,
+a:hover {
+  text-decoration: none;
+}
