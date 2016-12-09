@@ -9,7 +9,7 @@
       <!-- Database Lists -->
       <template v-if="dbs.length">
         <template v-for="db in dbs">
-          <DatabaseListItem :db="db"/></DatabaseListItem>
+          <DatabaseListItem :db="db" :colls="colls" /></DatabaseListItem>
         </template>
       </template>
 
@@ -48,6 +48,7 @@
 
     computed: mapGetters({
       dbs: 'dbs',
+      colls: 'colls',
       errors: 'errors',
       fetchingDbs: 'fetchingDbs',
     }),
