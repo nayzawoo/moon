@@ -4,6 +4,7 @@
 @import 'header';
 @import 'dbs-list';
 @import 'mixins';
+@import 'plugins/pace';
 
 .db-list .list-group-item a {
   animation-duration: 0.3s;

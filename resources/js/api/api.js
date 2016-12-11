@@ -1,6 +1,9 @@
-import 'whatwg-fetch'
 import url from 'url'
 import _ from 'lodash'
+
+global.fetch = undefined;
+require('whatwg-fetch');
+const fetch = global.fetch;
 
 function getEndpoint(path) {
   return url.resolve(globals.apiRoot, path)

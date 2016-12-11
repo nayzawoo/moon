@@ -37,11 +37,11 @@ export default {
   methods: {
     toggleDbItem(e) {
       e.preventDefault()
-      this.firstOpen = true
-      this.open = !this.open
-      if(open) {
+      if(!this.open && !this.firstOpen) {
         this.$store.dispatch('fetchColls', this.db.name)
       }
+      this.firstOpen = true
+      this.open = !this.open
     }
   },
 

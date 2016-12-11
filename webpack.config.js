@@ -69,6 +69,9 @@ module.exports = {
     }, {
       test: /\.vue$/,
       loader: 'vue-loader',
+    }, {
+      test: require.resolve("pace-progress"),
+      loader: "imports?define=>false"
     }]
   },
   postcss: function() {
