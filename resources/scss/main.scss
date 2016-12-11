@@ -3,6 +3,7 @@
 @import 'variables';
 @import 'header';
 @import 'dbs-list';
+@import 'mixins';
 
 .db-list .list-group-item a {
   animation-duration: 0.3s;
@@ -12,3 +13,5 @@ a,
 a:hover {
   text-decoration: none;
 }
+
+@include scrollbars(.5em, $gray-dark);

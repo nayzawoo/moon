@@ -36,8 +36,8 @@ class Database
     {
         $collections = [];
         foreach ($this->listCollectionNames() as $coll) {
-            $collection = new Collection($this->getDatabase(), $coll);
-            $collections[] = $collection->getInfo();
+            $collection = new Collection($this, $coll);
+            $collections[] = $collection;
         }
 
         return $collections;

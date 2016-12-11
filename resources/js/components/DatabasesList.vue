@@ -7,10 +7,8 @@
     </span>
     <ul>
       <!-- Database Lists -->
-      <template v-if="dbs.length">
-        <template v-for="db in dbs">
-          <DatabaseListItem :db="db" :colls="colls" /></DatabaseListItem>
-        </template>
+      <template v-for="(value, key) in dbs">
+        <DatabaseListItem :db="value"/></DatabaseListItem>
       </template>
 
       <!-- Error Message -->
@@ -19,7 +17,7 @@
       </div>
 
       <!-- Loading spinner -->
-      <Spinner  v-if="fetchingDbs"></Spinner>
+      <Spinner  v-if="false"></Spinner>
     </ul>
   </nav>
 </template>
@@ -48,7 +46,6 @@
 
     computed: mapGetters({
       dbs: 'dbs',
-      colls: 'colls',
       errors: 'errors',
       fetchingDbs: 'fetchingDbs',
     }),

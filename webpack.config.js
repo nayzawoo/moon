@@ -4,8 +4,8 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin")
 var PROD = JSON.parse(process.env.PROD_ENV || '0')
 
 var entryProd = {
-  'css/style.min.css': './client/scss/main',
-  'js/bundle.min.js': ['./client/js/main']
+  'css/style.min.css': './resources/scss/main',
+  'js/bundle.min.js': ['./resources/js/main']
 }
 
 var extractCSS = new ExtractTextPlugin('[name]', {
@@ -48,8 +48,8 @@ if (PROD) {
 module.exports = {
   devtool: PROD ? '' : 'eval',
   entry: PROD ? entryProd : {
-    'css/style.css': './client/scss/main',
-    'js/bundle.js': ['./client/js/main']
+    'css/style.css': './resources/scss/main',
+    'js/bundle.js': ['./resources/js/main']
   },
   output: {
     path: path.join(__dirname, 'public'),
@@ -62,7 +62,7 @@ module.exports = {
       test: /\.js|\.jsx$/,
       exclude: /(node_modules|bower_components)/,
       loaders: ['babel'],
-      include: path.join(__dirname, 'client/js')
+      include: path.join(__dirname, 'resources/js')
     }, {
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract('style-loader', sassLoaders)
@@ -79,7 +79,7 @@ module.exports = {
     return option
   },
   sassLoader: {
-    includePaths: [path.join(__dirname, 'client/scss'), 'node_modules']
+    includePaths: [path.join(__dirname, 'resources/scss'), 'node_modules']
   },
   resolve: {
     alias: {

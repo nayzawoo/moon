@@ -2,7 +2,6 @@
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
-use MongoDB\Database;
 
 class Collection implements Arrayable, Jsonable
 {
@@ -28,9 +27,7 @@ class Collection implements Arrayable, Jsonable
     public function getInfo()
     {
         $collStats = $this->getCollStats();
-
         $collStats = json_decode(collect($collStats)->toJson(), true)[0];
-
         return [
             'name'         => $this->name,
             'size'         => array_get($collStats, 'size'),
@@ -42,9 +39,14 @@ class Collection implements Arrayable, Jsonable
 
     public function getCollStats()
     {
-        return $collection = $this->database->command([
+        return $collection = $this->database->getDatabase()->command([
             'collStats' => $this->name
         ]);
+    }
+
+    public function __get($name)
+    {
+
     }
 
     /**

@@ -2,13 +2,11 @@
 
 use App\Moon\Database;
 use App\Transformers\DatabaseTransformer;
-
 class DashboardController extends Controller
 {
     public function listDatabases()
     {
         $dbs = $this->server->listDatabases();
-
         return fractal()
             ->collection($dbs)
             ->transformWith(new DatabaseTransformer())
@@ -17,6 +15,11 @@ class DashboardController extends Controller
 
     public function listCollections($dbName)
     {
-        return (new Database($this->server, $dbName))->listCollections();
+        $collections = (new Database($this->server, $dbName))->listCollections();
+
+        return [
+            'db' => $dbName,
+            'colls' => $collections,
+        ];
     }
 }

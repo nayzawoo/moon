@@ -5,20 +5,26 @@
       <i class="fa fa-database db-icon mr-1"></i>
       {{db.name}}
     </a>
-    <div class="collection-list">
-      <!-- {this.renderCollections(db.name)} -->
-      {{colls}}
-    </div>
+    <template v-if="colls.length">
+      <CollectionsList :colls="colls"></CollectionsList>
+    </template>
   </li>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import CollectionsList from './CollectionsList'
+import _ from 'lodash'
+
 export default {
   props: {
     db: {
       type: Object
-    },
-    colls: {}
+    }
+  },
+
+  components: {
+    CollectionsList
   },
 
   data() {
@@ -40,9 +46,19 @@ export default {
   },
 
   computed: {
+    ...mapGetters({
+      collsByDb: 'collsByDb'
+    }),
+    colls() {
+      var colls = this.collsByDb(this.db.name)
+      if (colls) {
+        return colls;
+      }
+      return []
+    },
     classes() {
       return this.open ? 'open' : ''
-    }
+    },
   }
 }
 </script>

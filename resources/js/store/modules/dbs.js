@@ -4,7 +4,7 @@ import * as type from '../mutation-types'
 export default {
   state: {
     fetchingDbs: false,
-    dbs: [],
+    dbs: {},
     errors: {}
   },
   getters: {
@@ -25,12 +25,15 @@ export default {
   mutations: {
     [type.FETCHING_DBS](state) {
       state.errors = {}
-      state.dbs = []
       state.fetchingDbs = true
     },
 
     [type.FETCH_DBS_SUCCESS](state, dbs) {
-      state.dbs = dbs
+      state.dbs = {}
+      for (var i = 0; i < dbs.length; i++) {
+        state.dbs[dbs[i].name] = dbs[i]
+      }
+
       state.errors = {}
       state.fetchingDbs = false
     },
