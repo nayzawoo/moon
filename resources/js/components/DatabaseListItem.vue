@@ -1,12 +1,12 @@
 <template>
-  <li class="dbs-list-item p-0 " :class="classes">
-    <a href="#" class="menu-item animated fadeIn d-block" @click="toggleDbItem">
-      <i class="fa tree-toggle-icon text-gray-dark mr-1" :class="{'fa-caret-down': open, 'fa-caret-right': !open}"></i>
+  <li class="dbs-list-item p-0 " :class="{'open': open}" :title="db.name">
+    <a href="#" class="menu-item animated fadeIn d-block border-0" @click="toggleDbItem">
+      <i class="fa tree-toggle-icon text-gray-dark mr-1" :class="{'fa-minus-square-o': open, 'fa-plus-square-o': !open}"></i>
       <i class="fa fa-database db-icon mr-1"></i>
       {{db.name}}
     </a>
     <template v-if="colls.length">
-      <CollectionsList :colls="colls"></CollectionsList>
+      <CollectionsList :colls="colls" :db-name="db.name"></CollectionsList>
     </template>
   </li>
 </template>
@@ -19,6 +19,7 @@ import _ from 'lodash'
 export default {
   props: {
     db: {
+      required: true,
       type: Object
     }
   },
@@ -37,7 +38,7 @@ export default {
   methods: {
     toggleDbItem(e) {
       e.preventDefault()
-      if(!this.open && !this.firstOpen) {
+      if((!this.open && !this.firstOpen) || !this.colls.length) {
         this.$store.dispatch('fetchColls', this.db.name)
       }
       this.firstOpen = true
@@ -55,10 +56,7 @@ export default {
         return colls;
       }
       return []
-    },
-    classes() {
-      return this.open ? 'open' : ''
-    },
+    }
   }
 }
 </script>

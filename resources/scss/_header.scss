@@ -1,6 +1,8 @@
-$navbar-height: 60px;
 header {
     height: $navbar-height;
+    margin-left: $sidebar-width;
+    padding-left: 15px;
+    padding-right: 15px;
     a {
         line-height: $navbar-height;
         color: $gray-dark;

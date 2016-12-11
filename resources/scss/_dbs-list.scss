@@ -1,16 +1,44 @@
 .dbs-list {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1900; // less than pace loading bar
+  width: $sidebar-width;
+  overflow-y: hidden;
+  border: 0;
+  border-radius: 0;
+  padding-top: $navbar-height + 10px;
   li {
     list-style: none;
   }
+  > ul {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .menu-heading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $sidebar-width;
+    height: $navbar-height;
+    line-height: $navbar-height;
+    padding-top: 0;
+  }
+
   .menu-heading .btn-sm {
     float: right;
-    margin-top: -2px;
-    margin-right: -3px;
-    padding: 1px 6px;
+    margin-top: 9px;
+    margin-right: 2px;
+    padding: 2px 6px;
   }
 }
 
 .dbs-list-item {
+  animation-duration: 0.3s;
+  white-space: nowrap;
   .collection-list { display: none }
   &.open {
     .collection-list { display: block }

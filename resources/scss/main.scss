@@ -1,18 +1,19 @@
 @import '~primer-css/index';
-@import 'spinkit';
 @import 'variables';
+@import 'spinkit';
 @import 'header';
 @import 'dbs-list';
 @import 'mixins';
 @import 'plugins/pace';
-
-.db-list .list-group-item a {
-  animation-duration: 0.3s;
-}
 
 a,
 a:hover {
   text-decoration: none;
 }
 
-@include scrollbars(.5em, $gray-dark);
+.main-content {
+    margin-left: $sidebar-width + 15px;
+    margin-right: 15px;
+}
+
+// @include scrollbars(.5em, #d3d3d3);

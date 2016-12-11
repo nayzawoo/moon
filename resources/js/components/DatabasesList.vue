@@ -1,6 +1,6 @@
 <template>
-  <nav class="menu dbs-list">
-    <span class="menu-heading">Databases
+  <nav class="menu dbs-list border-right">
+    <span class="menu-heading">Search Database
       <button @click="reloadDbs" class="btn btn-sm btn-reload" title="Reload" type="button">
         <i class="fa fa-refresh"></i>
       </button>

@@ -1,7 +1,7 @@
 <template>
   <div class="collection-list" >
     <template v-for="coll in colls">
-      <CollectionListItem :coll="coll" />
+      <CollectionListItem :coll="coll" :db-name="dbName"/>
     </template>
   </div>
 </template>
@@ -18,9 +18,11 @@
 
     props: {
       colls: {
+        required: true,
         type: Array
       },
       dbName: {
+        required: true,
         type: String,
       },
     // fetchCols: React.PropTypes.func

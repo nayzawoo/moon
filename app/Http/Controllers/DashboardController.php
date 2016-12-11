@@ -6,7 +6,7 @@ class DashboardController extends Controller
 {
     public function listDatabases()
     {
-        sleep(2);
+        sleep(0);
         $dbs = $this->server->listDatabases();
         return fractal()
             ->collection($dbs)
@@ -16,7 +16,7 @@ class DashboardController extends Controller
 
     public function listCollections($dbName)
     {
-        sleep(2);
+        sleep(0);
         $collections = (new Database($this->server, $dbName))->listCollections();
 
         return [

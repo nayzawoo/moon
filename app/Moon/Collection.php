@@ -44,11 +44,6 @@ class Collection implements Arrayable, Jsonable
         ]);
     }
 
-    public function __get($name)
-    {
-
-    }
-
     /**
      * Get the instance as an array.
      *
