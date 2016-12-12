@@ -1,4 +1,4 @@
-import dbsApi from '../../api/dbs'
+import fetchApi from '../../api/fetch'
 import {set} from 'vue'
 import * as type from '../mutation-types'
 
@@ -18,8 +18,8 @@ export default {
   },
   actions: {
     fetchColls({commit}, dbName) {
-      commit(type.FETCHING_COLS)
-      dbsApi.fetchColls(dbName, colls => {
+      commit(type.FETCHING_COLLS)
+      fetchApi.fetchColls(dbName, colls => {
         commit(type.FETCH_COLLS_SUCCESS, colls)
       }, (errors) => {
         commit(type.FETCH_COLLS_FAILURE, errors)
@@ -27,7 +27,7 @@ export default {
     }
   },
   mutations: {
-    [type.FETCHING_COLS](state) {
+    [type.FETCHING_COLLS](state) {
       state.errors = {}
       state.fetchingColls = true
     },

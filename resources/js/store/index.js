@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import dbs from './modules/dbs'
 import colls from './modules/colls'
+import docs from './modules/docs'
 
 Vue.use(Vuex)
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
   modules: {
     dbs,
     colls,
+    docs,
   },
   strict: debug,
   plugins: debug ? [] : []

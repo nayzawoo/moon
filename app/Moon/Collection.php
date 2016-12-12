@@ -45,6 +45,13 @@ class Collection implements Arrayable, Jsonable
     }
 
     /**
+     * @return \MongoDB\Collection
+     */
+    public function command() {
+        return $this->database->getDatabase()->{$this->name};
+    }
+
+    /**
      * Get the instance as an array.
      *
      * @return array

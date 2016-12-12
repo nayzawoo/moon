@@ -1,4 +1,4 @@
-import dbsApi from '../../api/dbs'
+import fetchApi from '../../api/fetch'
 import * as type from '../mutation-types'
 
 export default {
@@ -15,7 +15,7 @@ export default {
   actions: {
     fetchDbs({commit}) {
       commit(type.FETCHING_DBS)
-      dbsApi.fetchDbs(dbs => {
+      fetchApi.fetchDbs(dbs => {
         commit(type.FETCH_DBS_SUCCESS, dbs)
       }, (errors) => {
         commit(type.FETCH_DBS_FAILURE, errors)
