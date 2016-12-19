@@ -7,10 +7,9 @@
     <link rel="shortcut icon" href="{{url('favicon.ico')}}" />
     <link rel="stylesheet" href="{{url('css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{url('css/animate.min.css')}}">
+    <link rel="stylesheet" href="{{url('css/highlight.min.css')}}">
     <link rel="stylesheet" href="{{url('css/style.css')}}">
-    <link rel="stylesheet" href="{{url('css/codemirror.min.css')}}">
-    <script src="{{url('js/codemirror.min.js')}}"></script>
-    <script src="{{url('js/codemirror-javascript.min.js')}}"></script>
+    <script src="{{url('js/highlight.min.js')}}"></script>
     <script>
       var globals = {!!json_encode([
         'apiRoot' => url('api')

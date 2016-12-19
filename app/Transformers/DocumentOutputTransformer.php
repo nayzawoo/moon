@@ -14,10 +14,15 @@ class DocumentOutputTransformer extends TransformerAbstract
     public function transform(BSONDocument $document)
     {
         $output = $this->encodeDocument($document);
-        return $output;
+        $id = (string)$document->_id;
+        return [
+            'id' => $id,
+            'data' => json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE),
+        ];
     }
 
-    public function encodeDocument(BSONDocument $document) {
+    public function encodeDocument(BSONDocument $document)
+    {
         $documentArray = iterator_to_array($document);
         array_walk_recursive($documentArray, function (&$value) {
             if (is_object($value)) {

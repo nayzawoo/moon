@@ -35,7 +35,7 @@ export default {
     [type.FETCH_DOCS_SUCCESS](state, response) {
       state.docs = {}
       for (var i = 0; i < response.length; i++) {
-        set(state.docs, response[i]._id, response[i])
+        set(state.docs, response[i].id, response[i].data)
       }
       state.errors = {}
       state.fetchingDocs = false

@@ -6,9 +6,7 @@
       </div>
       <template v-for="(doc, key) in docs">
         <br>
-        <div>
-          <h3><pre>{{doc}}</pre></h3>
-        </div>
+        <Document :content="doc"></Document>
       </template>
     </div>
   </div>
@@ -16,8 +14,18 @@
 
 <script>
   import {mapGetters} from 'vuex'
+  import Document from './Document'
+  import _ from 'lodash'
 
   export default {
+    components: {
+      Document,
+    },
+    data() {
+      return {
+        docsLocal: []
+      }
+    },
     computed: mapGetters({
       docs: 'docs',
       fetchDocs: 'fetchDocs',
@@ -26,7 +34,13 @@
      this.fetchData()
    },
    watch: {
-    '$route': 'fetchData'
+    '$route': 'fetchData',
+    docs(newVal) {
+      if(_.isArray(newVal)) {
+        this.docsLocal = []
+        this.docsLocal = newVal
+      }
+    }
   },
   methods: {
     fetchData() {
