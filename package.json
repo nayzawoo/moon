@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "cssnano": "^3.8.0",
+    "highlight.js": "^9.9.0",
     "lodash": "^4.17.2",
     "pace-progress": "^1.0.2",
     "postcss-loader": "^1.1.1",

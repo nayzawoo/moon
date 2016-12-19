@@ -4,7 +4,7 @@ import Pace from 'pace-progress'
 import VueRouter from 'vue-router'
 import Welcome from './components/Welcome'
 import Documents from './components/Documents'
-import highlight from './filters/highlight'
+import './highlight'
 
 Vue.use(VueRouter)
 
@@ -17,10 +17,6 @@ const routes = [
 const router = new VueRouter({
   routes
 })
-
-const filters = {
-  highlight
-}
 
 // window.fetch polyfill
 global.fetch = undefined

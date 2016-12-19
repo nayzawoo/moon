@@ -22,6 +22,7 @@ class DocumentOutputTransformer extends TransformerAbstract
 
         $data = json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         $data = $this->removeQuotes($data);
+
         return [
             'id'   => $id,
             'data' => $data,

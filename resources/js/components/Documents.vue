@@ -1,9 +1,6 @@
 <template>
   <div class="columns">
     <div class="single-column">
-      <div class="blankslate">
-        <h3>DB: {{ $route.params.db }}, Collection: {{ $route.params.coll }}</h3>
-      </div>
       <template v-for="(doc, key) in docs">
         <br>
         <Document :content="doc"></Document>

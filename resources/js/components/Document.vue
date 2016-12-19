@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <pre class="code" v-html="highlightedContent"></pre>
+  <div class="document-block">
+    <pre v-html="highlightedContent"></pre>
   </div>
 </template>
 
@@ -20,7 +20,7 @@
     },
     computed: {
       highlightedContent() {
-        return hljs.highlight('javascript', this.content).value
+        return hljs.highlight('mongocustom', this.content).value
       }
     },
   }
