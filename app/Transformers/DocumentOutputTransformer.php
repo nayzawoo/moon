@@ -7,17 +7,24 @@ use League\Fractal\TransformerAbstract;
 use MongoDB\BSON\ObjectID;
 use MongoDB\BSON\Regex;
 use MongoDB\BSON\UTCDateTime;
+use MongoDB\Model\BSONArray;
 use MongoDB\Model\BSONDocument;
 
 class DocumentOutputTransformer extends TransformerAbstract
 {
+    private $uuid;
+
     public function transform(BSONDocument $document)
     {
+        $this->uuid = generateRandomString(6);
         $output = $this->encodeDocument($document);
         $id = (string)$document->_id;
+
+        $data = json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        $data = $this->removeQuotes($data);
         return [
-            'id' => $id,
-            'data' => json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE),
+            'id'   => $id,
+            'data' => $data,
         ];
     }
 
@@ -32,6 +39,16 @@ class DocumentOutputTransformer extends TransformerAbstract
         return $documentArray;
     }
 
+    public function encodeBSONArray(BSONArray $array) {
+        $array = $array->getArrayCopy();
+        array_walk_recursive($array, function (&$value) {
+            if (is_object($value)) {
+                $value = $this->encodeValue($value);
+            }
+        });
+        return $array;
+    }
+
     /**
      * @param $value
      * @return Regex|UTCDateTime|BSONDocument|string
@@ -40,14 +57,14 @@ class DocumentOutputTransformer extends TransformerAbstract
     {
         switch (get_class($value)) {
             case ObjectID::class:
-                $value = "ObjectID('" . $value . "')";
+                $value = "{$this->uuid}-ObjectID({$value})";
                 break;
             case UTCDateTime::class:
                 /**
                  * @var $value UTCDateTime
                  */
                 $date = $value->toDateTime()->format(DateTime::ATOM);
-                $value = "UTCDateTime('" . $date . "')";
+                $value = "{$this->uuid}-UTCDateTime({$date})";
                 break;
             case Regex::class:
                 /**
@@ -61,7 +78,20 @@ class DocumentOutputTransformer extends TransformerAbstract
                  */
                 $value = $this->encodeDocument($value);
                 break;
+            case BSONArray::class:
+                /**
+                 * @var $value BSONArray
+                 */
+                $value = $this->encodeBSONArray($value);
+                break;
         }
         return $value;
+    }
+
+    private function removeQuotes($str)
+    {
+        $find = ["/\"{$this->uuid}-(.+)\((.+)\)\"/"];
+        $replace = ['$1("$2")'];
+        return preg_replace($find, $replace, $str);
     }
 }

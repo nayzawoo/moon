@@ -17,7 +17,6 @@
       }
     },
     created() {
-      console.log(hljs.highlight('javascript', this.content))
     },
     computed: {
       highlightedContent() {

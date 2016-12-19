@@ -5,7 +5,7 @@ use App\Moon\Database;
 use App\Transformers\DatabaseTransformer;
 use App\Transformers\DocumentOutputTransformer;
 
-class DashboardController extends Controller
+class ListController extends Controller
 {
     public function listDatabases()
     {
@@ -30,6 +30,7 @@ class DashboardController extends Controller
         $db = new Database($this->server, $dbName);
         $collection = new Collection($db, $collName);
         $data = $collection->command()->find([], ['limit' => 10]);
+        // dd(json_encode($data->toArray()));
         return fractal()
             ->collection($data)
             ->transformWith(new DocumentOutputTransformer())
