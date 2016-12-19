@@ -90,8 +90,9 @@ class DocumentOutputTransformer extends TransformerAbstract
 
     private function removeQuotes($str)
     {
-        $find = ["/\"{$this->uuid}-(.+)\((.+)\)\"/"];
-        $replace = ['$1("$2")'];
+        // [Objects, Keys]
+        $find = ['!"'.$this->uuid.'-(.+)\((.+)\)"!', '!(\n)(\s+)"(.+)":!'];
+        $replace = ['$1("$2")', '$1$2$3:'];
         return preg_replace($find, $replace, $str);
     }
 }
