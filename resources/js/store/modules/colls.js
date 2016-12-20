@@ -1,5 +1,5 @@
 import fetchApi from '../../api/fetch'
-import {set} from 'vue'
+import { set } from 'vue'
 import * as type from '../mutation-types'
 
 export default {
@@ -14,10 +14,10 @@ export default {
     collsByDb: state => dbName => {
       return state.colls[dbName]
     },
-    collsErrors: state => state.collsErrors,
+    collsErrors: state => state.collsErrors
   },
   actions: {
-    fetchColls({commit}, dbName) {
+    fetchColls({ commit }, dbName) {
       commit(type.FETCHING_COLLS)
       fetchApi.fetchColls(dbName, colls => {
         commit(type.FETCH_COLLS_SUCCESS, colls)

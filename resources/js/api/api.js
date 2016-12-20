@@ -12,7 +12,7 @@ function getEndpoint(path) {
  * @return {[type]}         [description]
  */
 export default function(options = {}, successCallback, failsCallback) {
-  let uri;
+  let uri
 
   if (_.isString(options)) {
     uri = options
@@ -22,7 +22,7 @@ export default function(options = {}, successCallback, failsCallback) {
   }
 
   options.headers = {
-    'Accept': 'application/json',
+    'Accept': 'application/json'
     // 'Authorization': `Bearer ${token}`
   }
 
@@ -30,12 +30,11 @@ export default function(options = {}, successCallback, failsCallback) {
     .then(response => {
       if (response.status === 200) {
         response.json().then(successCallback)
-        return;
+        return
       }
 
       if (_.isFunction(failsCallback)) {
         response.json().then(failsCallback)
       }
     })
-
 }

@@ -15,4 +15,5 @@ npm install
 ```bash
 npm run dev
 npm run prod
+npm run lint
 ```

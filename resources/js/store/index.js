@@ -14,7 +14,7 @@ export default new Vuex.Store({
   modules: {
     dbs,
     colls,
-    docs,
+    docs
   },
   strict: debug,
   plugins: debug ? [] : []

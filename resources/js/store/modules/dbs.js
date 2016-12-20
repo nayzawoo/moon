@@ -10,10 +10,10 @@ export default {
   getters: {
     fetchingDbs: state => state.fetchingDbs,
     dbs: state => state.dbs,
-    errors: state => state.errors,
+    errors: state => state.errors
   },
   actions: {
-    fetchDbs({commit}) {
+    fetchDbs({ commit }) {
       commit(type.FETCHING_DBS)
       fetchApi.fetchDbs(dbs => {
         commit(type.FETCH_DBS_SUCCESS, dbs)

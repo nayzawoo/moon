@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "./node_modules/.bin/webpack --watch",
     "prod": "PROD_ENV=1 ./node_modules/.bin/webpack --progress",
-    "lint": "./node_modules/.bin/eslint client/js -c .eslintrc.js"
+    "lint": "./node_modules/.bin/eslint ./resources/js -c .eslintrc.js"
   },
   "repository": {
     "type": "git",
@@ -28,9 +28,10 @@
     "css-loader": "^0.26.0",
     "eslint": "^3.11.1",
     "eslint-config-standard": "^6.2.1",
+    "eslint-config-vue": "^2.0.1",
     "eslint-plugin-html": "^1.7.0",
-    "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^2.0.1",
+    "eslint-plugin-vue": "^1.0.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "imports-loader": "^0.7.0",
     "node-sass": "^3.13.0",

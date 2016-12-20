@@ -1,5 +1,5 @@
 import fetchApi from '../../api/fetch'
-import {set} from 'vue'
+import { set } from 'vue'
 import * as type from '../mutation-types'
 
 export default {
@@ -14,10 +14,10 @@ export default {
     docsByKey: state => dbName => {
       return state.docs[dbName]
     },
-    docsErrors: state => state.docsErrors,
+    docsErrors: state => state.docsErrors
   },
   actions: {
-    fetchDocs({commit}, {db, coll}) {
+    fetchDocs({ commit }, { db, coll }) {
       commit(type.FETCHING_DOCS)
       fetchApi.fetchDocs(db, coll, docs => {
         commit(type.FETCH_DOCS_SUCCESS, docs)
