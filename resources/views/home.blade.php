@@ -21,6 +21,7 @@
   <body>
     <div id='app'>
     </div>
+    {{-- <script src="{{url('js/highlight.pack.js')}}"></script> --}}
     @if(env('APP_ENV') != 'production')
     <script src="{{url('js/bundle.js')}}"></script>
     @else

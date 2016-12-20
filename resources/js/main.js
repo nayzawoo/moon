@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import Pace from 'pace-progress'
 import router from './router'
-import './highlight'
+//import './highlight'
 
 // window.fetch polyfill
 global.fetch = undefined
@@ -16,3 +16,4 @@ new Vue({
   router,
   render: h => h(App)
 })
+

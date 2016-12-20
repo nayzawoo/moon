@@ -1,5 +1,5 @@
 <template>
-  <nav class="menu dbs-list border-right">
+  <nav class="menu database-list border-right">
     <span class="menu-heading">Search Database
       <button @click="reloadDbs" class="btn btn-sm btn-reload" title="Reload" type="button">
         <i class="fa fa-refresh"></i>
@@ -8,7 +8,7 @@
     <ul>
       <!-- Database Lists -->
       <template v-for="(value, key) in dbs">
-        <DatabaseListItem :db="value"/></DatabaseListItem>
+        <DatabaseItem :db="value"/></DatabaseItem>
       </template>
 
       <!-- Error Message -->
@@ -24,13 +24,13 @@
 
 <script>
   import Spinner from './Spinner'
-  import DatabaseListItem from './DatabaseListItem'
+  import DatabaseItem from './DatabaseItem'
   import { mapGetters } from 'vuex'
 
   export default {
     components: {
       Spinner,
-      DatabaseListItem
+      DatabaseItem
     },
 
     data() {

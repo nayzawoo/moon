@@ -1,8 +1,9 @@
-import url from 'url'
-import _ from 'lodash'
+import isFunction from 'lodash/isFunction'
+import isString from 'lodash/isString'
 
 function getEndpoint(path) {
-  return url.resolve(globals.apiRoot, path)
+  // remove duplicate slashes
+  return (`${globals.apiRoot}/${path}`).replace(/([^:]\/)\/+/g, '/')
 }
 
 /**
@@ -14,7 +15,7 @@ function getEndpoint(path) {
 export default function(options = {}, successCallback, failsCallback) {
   let uri
 
-  if (_.isString(options)) {
+  if (isString(options)) {
     uri = options
     options = {}
   } else {
@@ -33,7 +34,7 @@ export default function(options = {}, successCallback, failsCallback) {
         return
       }
 
-      if (_.isFunction(failsCallback)) {
+      if (isFunction(failsCallback)) {
         response.json().then(failsCallback)
       }
     })

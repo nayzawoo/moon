@@ -1,7 +1,7 @@
 <template>
   <div class="collection-list" >
     <template v-for="coll in colls">
-      <CollectionListItem :coll="coll" :db-name="dbName"/>
+      <CollectionItem :coll="coll" :db-name="dbName"/>
     </template>
   </div>
 </template>
@@ -9,11 +9,11 @@
 <script>
 
   import Spinner from './Spinner'
-  import CollectionListItem from './CollectionListItem'
+  import CollectionItem from './CollectionItem'
 
   export default {
     components: {
-      CollectionListItem
+      CollectionItem
     },
 
     props: {

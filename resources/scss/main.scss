@@ -3,11 +3,11 @@
 @import 'mixins';
 @import 'spinkit';
 @import 'header';
-@import 'dbs-list';
-@import 'collections-list';
+@import 'database-list';
+@import 'collection-list';
 @import 'plugins/pace';
-@import 'document-block';
-@import 'documents-list';
+@import 'document-item';
+@import 'document-list';
 
 a,
 a:hover {

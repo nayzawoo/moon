@@ -1,4 +1,4 @@
-.dbs-list {
+.database-list {
   position: fixed;
   top: 0;
   left: 0;
@@ -36,7 +36,7 @@
   }
 }
 
-.dbs-list-item {
+.database-item {
   animation-duration: 0.3s;
   white-space: nowrap;
   .collection-list { display: none }

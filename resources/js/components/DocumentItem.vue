@@ -1,10 +1,11 @@
 <template>
-  <div class="document-block">
+  <div class="document-item">
     <pre class="bg-gray-dark text-white" v-html="highlightedContent"></pre>
   </div>
 </template>
 
 <script>
+  import Prism from 'prismjs'
   export default {
     data() {
       return {
@@ -20,7 +21,7 @@
     },
     computed: {
       highlightedContent() {
-        return hljs.highlight('mongocustom', this.content).value
+        return Prism.highlight(this.content, Prism.languages.javascript)
       }
     },
   }

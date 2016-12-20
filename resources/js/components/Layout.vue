@@ -1,20 +1,23 @@
 <template>
   <div>
     <Navbar />
-    <DatabasesList></DatabasesList>
+    <DatabaseList></DatabaseList>
     <div class="container-xl main-content">
+      <ContentHeader></ContentHeader>
       <router-view></router-view>
     </div>
   </div>
 </template>
 <script>
   import Navbar from './Navbar'
-  import DatabasesList from './DatabasesList'
+  import DatabaseList from './DatabaseList'
+  import ContentHeader from './ContentHeader'
 
   export default {
     components: {
       Navbar,
-      DatabasesList
+      DatabaseList,
+      ContentHeader
     }
   }
 </script>

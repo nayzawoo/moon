@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Welcome from './components/Welcome'
-import Documents from './components/Documents'
+import DocumentList from './components/DocumentList'
 
 Vue.use(VueRouter)
 
@@ -11,7 +11,7 @@ const routes = [{
 }, {
   name: 'docs',
   path: '/documents/:db/:coll/',
-  component: Documents
+  component: DocumentList
 }, {
   path: '*',
   redirect: '/'
