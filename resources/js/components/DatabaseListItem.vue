@@ -35,14 +35,27 @@ export default {
     }
   },
 
+  created() {
+    if (this.$route.params.db === this.db.name) {
+      this.fetchColls()
+      this.firstOpen = this.open = true
+    }
+  },
+
   methods: {
     toggleDbItem(e) {
       e.preventDefault()
-      if((!this.open && !this.firstOpen) || !this.colls.length) {
-        this.$store.dispatch('fetchColls', this.db.name)
-      }
+      this.fetchColls()
       this.firstOpen = true
       this.open = !this.open
+    },
+    fetchColls() {
+      if(this.shouldFetch()) {
+        this.$store.dispatch('fetchColls', this.db.name)
+      }
+    },
+    shouldFetch() {
+      return (!this.open && !this.firstOpen) || !this.colls.length
     }
   },
 
