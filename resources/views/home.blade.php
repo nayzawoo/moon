@@ -7,12 +7,11 @@
     <link rel="shortcut icon" href="{{url('favicon.ico')}}" />
     <link rel="stylesheet" href="{{url('css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{url('css/animate.min.css')}}">
-    <link rel="stylesheet" href="{{url('css/highlight.min.css')}}">
     <link rel="stylesheet" href="{{url('css/style.css')}}">
-    <link rel="stylesheet" id="hljs-theme" href="{{url('css/hljs-themes/github.css')}}">
+    <link rel="stylesheet" id="themes" href="{{url('css/themes/prism-okaidia.css')}}">
     <script>
       var globals = {!!json_encode([
-        'themeUrl' => url('css/hljs-themes/'),
+        'themeUrl' => url('css/themes/'),
         'apiRoot' => url('api'),
         'highlightThemes' => $highlightThemes
       ])!!}

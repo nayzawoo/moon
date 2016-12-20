@@ -42,16 +42,16 @@
     methods: {
       switchTheme(theme) {
         if (this.themes[theme]) {
-          store.set('hljs-theme', theme)
-          document.getElementById('hljs-theme').href = `${window.globals.themeUrl}/${theme}.css`
+          store.set('themes', theme)
+          document.getElementById('themes').href = `${window.globals.themeUrl}/${theme}.css`
         }
       },
       defaultTheme() {
-        const storeTheme = store.get('hljs-theme')
+        const storeTheme = store.get('themes')
         if (storeTheme && this.themes[storeTheme]) {
           return storeTheme;
         }
-        return 'arta';
+        return 'prism-okaidia'
       }
     }
   }

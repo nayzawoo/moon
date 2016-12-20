@@ -1,6 +1,6 @@
 <template>
   <div class="document-item">
-    <pre class="bg-gray-dark text-white" v-html="highlightedContent"></pre>
+    <pre class="language-bson" v-html="highlightedContent"></pre>
   </div>
 </template>
 

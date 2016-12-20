@@ -7,11 +7,11 @@ class Themes
 
     public static function getThemes() {
         if (Cache::has('hljs-themes')) {
-            return Cache::get('hljs-themes');
+            return Cache::get('highlight-themes');
         }
 
         $themes = static::globThemes();
-        Cache::forever('hljs-themes', $themes);
+        Cache::forever('highlight-themes', $themes);
 
         return $themes;
     }
@@ -19,7 +19,7 @@ class Themes
     public static function globThemes()
     {
         $themes = [];
-        foreach (glob(APP_PUBLIC_PATH . '/css/hljs-themes/*.css') as $filename) {
+        foreach (glob(APP_PUBLIC_PATH . '/css/themes/*.css') as $filename) {
             $themes[] = basename($filename, '.css');
         }
         return $themes;
