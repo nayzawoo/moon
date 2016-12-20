@@ -14,17 +14,19 @@ class DocumentOutputTransformer extends TransformerAbstract
 {
     private $uuid;
 
-    public function transform(BSONDocument $document)
+    public function __construct()
     {
         $this->uuid = generateRandomString(6);
-        $output = $this->encodeDocument($document);
-        $id = (string)$document->_id;
+    }
 
+    public function transform(BSONDocument $document)
+    {
+        $output = $this->encodeDocument($document);
         $data = json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         $data = $this->removeQuotes($data);
 
         return [
-            'id'   => $id,
+            'id'   => (string) $document->_id,
             'data' => $data,
         ];
     }
@@ -32,16 +34,17 @@ class DocumentOutputTransformer extends TransformerAbstract
     public function encodeDocument(BSONDocument $document)
     {
         $documentArray = iterator_to_array($document);
-        array_walk_recursive($documentArray, function (&$value) {
-            if (is_object($value)) {
-                $value = $this->encodeValue($value);
-            }
-        });
-        return $documentArray;
+        return $this->walkRecursive($documentArray);
     }
 
-    public function encodeBSONArray(BSONArray $array) {
+    public function encodeBSONArray(BSONArray $array)
+    {
         $array = $array->getArrayCopy();
+        return $this->walkRecursive($array);
+    }
+
+    private function walkRecursive($array)
+    {
         array_walk_recursive($array, function (&$value) {
             if (is_object($value)) {
                 $value = $this->encodeValue($value);
@@ -92,7 +95,7 @@ class DocumentOutputTransformer extends TransformerAbstract
     private function removeQuotes($str)
     {
         // [Objects, Keys]
-        $find = ['!"'.$this->uuid.'-(.+)\((.+)\)"!', '!(\n)(\s+)"(.+)":!'];
+        $find = ['!"' . $this->uuid . '-(.+)\((.+)\)"!', '!(\n)(\s+)"(.+)":!'];
         $replace = ['$1("$2")', '$1$2$3:'];
         return preg_replace($find, $replace, $str);
     }

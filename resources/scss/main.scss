@@ -6,8 +6,8 @@
 @import 'dbs-list';
 @import 'collections-list';
 @import 'plugins/pace';
-@import 'plugins/hljs-gist-style';
 @import 'document-block';
+@import 'documents-list';
 
 a,
 a:hover {
@@ -15,8 +15,28 @@ a:hover {
 }
 
 .main-content {
-    margin-left: $sidebar-width + 15px;
-    margin-right: 15px;
+  margin-left: $sidebar-width + 15px;
+  margin-right: 15px;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.clearfix {
+  &::before {
+    display: table;
+    content: "";
+  }
+  &::after {
+    display: table;
+    clear: both;
+    content: "";
+  }
 }
 
 // @include scrollbars(.5em, #d3d3d3);

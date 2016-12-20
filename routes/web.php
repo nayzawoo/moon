@@ -11,6 +11,6 @@
 |
 */
 
-$app->get('/', function () use ($app) {
-    return view('home');
-});
+$app->get('/', [
+    'uses' => 'HomeController@index'
+]);

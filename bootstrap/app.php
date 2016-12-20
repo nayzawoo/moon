@@ -1,5 +1,8 @@
 <?php
 
+define("APP_BASE_PATH", __DIR__.'/..');
+define("APP_PUBLIC_PATH", __DIR__.'/../public');
+
 require_once __DIR__.'/../vendor/autoload.php';
 
 try {

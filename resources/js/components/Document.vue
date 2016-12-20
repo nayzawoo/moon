@@ -1,6 +1,6 @@
 <template>
   <div class="document-block">
-    <pre v-html="highlightedContent"></pre>
+    <pre class="bg-gray-dark text-white" v-html="highlightedContent"></pre>
   </div>
 </template>
 

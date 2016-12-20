@@ -9,9 +9,12 @@
     <link rel="stylesheet" href="{{url('css/animate.min.css')}}">
     <link rel="stylesheet" href="{{url('css/highlight.min.css')}}">
     <link rel="stylesheet" href="{{url('css/style.css')}}">
+    <link rel="stylesheet" id="hljs-theme" href="{{url('css/hljs-themes/github.css')}}">
     <script>
       var globals = {!!json_encode([
-        'apiRoot' => url('api')
+        'themeUrl' => url('css/hljs-themes/'),
+        'apiRoot' => url('api'),
+        'highlightThemes' => $highlightThemes
       ])!!}
     </script>
   </head>
