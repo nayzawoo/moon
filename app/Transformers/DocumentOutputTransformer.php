@@ -67,8 +67,10 @@ class DocumentOutputTransformer extends TransformerAbstract
                 /**
                  * @var $value UTCDateTime
                  */
-                $date = $value->toDateTime()->format(DateTime::ATOM);
-                $value = "{$this->uuid}-UTCDateTime({$date})";
+                $microseconds = (float) ($value->toDateTime()->format('s.u'));
+                $date = $value->toDateTime()->format('Y-m-d\TH:i:');
+                $date .= $microseconds . 'Z';
+                $value = "{$this->uuid}-ISODate({$date})";
                 break;
             case Regex::class:
                 /**
@@ -94,7 +96,7 @@ class DocumentOutputTransformer extends TransformerAbstract
 
     private function removeQuotes($str)
     {
-        // [Objects, Keys]
+        // [BSONObjects, Keys]
         $find = ['!"' . $this->uuid . '-(.+)\((.+)\)"!', '!(\n)(\s+)"(.+)":!'];
         $replace = ['$1("$2")', '$1$2$3:'];
         return preg_replace($find, $replace, $str);
