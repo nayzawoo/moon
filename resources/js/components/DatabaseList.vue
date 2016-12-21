@@ -2,7 +2,8 @@
   <nav class="menu database-list border-right">
     <span class="menu-heading">Search Database
       <button @click="reloadDbs" class="btn btn-sm btn-reload" title="Reload" type="button">
-        <i class="fa fa-refresh"></i>
+        <!-- <i class="fa fa-refresh"></i> -->
+        <span v-html="$icons.sync"></span>
       </button>
     </span>
     <ul>

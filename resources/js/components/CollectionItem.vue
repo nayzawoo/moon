@@ -1,6 +1,7 @@
 <template>
-    <router-link :to="{name: 'docs', params: {db: dbName, coll: coll.name}}" class="menu-item border-0 pl-4" :title="coll.name" :class="{'selected': open}">
-      <i class="fa mr-1 text-orange" :class="{'fa-folder-open': open, 'fa-folder': !open}"></i>
+    <router-link :to="{name: 'docs', params: {db: dbName, coll: coll.name}}" class="menu-item border-0 pl-5" :title="coll.name" :class="{'selected': open}">
+      <!-- <i class="fa mr-1 text-orange" :class="{'fa-folder-open': open, 'fa-folder': !open}"></i> -->
+      <span v-html="$icons.folder"></span>
       {{coll.name}}
     </router-link>
 </template>

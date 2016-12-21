@@ -43,4 +43,7 @@
   &.open {
     .collection-list { display: block }
   }
+  .toggle-icon .octicon {
+    margin-right: 2px;
+  }
 }
